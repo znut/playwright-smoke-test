@@ -22,9 +22,7 @@ jobs:
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-node-
-    - name: install required packages
-    - name: npm install
-      run: npm install
+    - run: npm install
         npm install
     - run: npm start
     - uses: actions/upload-artifact@v1
