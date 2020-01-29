@@ -24,6 +24,7 @@ jobs:
           ${{ runner.os }}-node-
     - run: npm install
         npm install
+    - run: mkdir artifacts
     - run: npm start
     - uses: actions/upload-artifact@v1
       with:
