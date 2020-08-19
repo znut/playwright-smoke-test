@@ -8,9 +8,9 @@ Given("Home page", async () => {
 
 When("I click on {word}", async (element) => {
   await page.click(`[data-selenium='${element}']`)
+  await page.waitForLoadState()
 });
 
 Then("I should be on page", async () => {
-  await page.waitForLoadState()
   assert.equal(page.url(), "https://www.rurubu.travel/deals")
 });
