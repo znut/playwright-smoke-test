@@ -8,7 +8,11 @@ let page: Page
 
 // Create a global browser for the test session.
 BeforeAll(async () => {
-  browser = await Playwright.chromium.launch({ headless: false });
+  if (process.env.GITHUB_ACTIONS) {
+    browser = await Playwright.chromium.launch();
+  } else {
+    browser = await Playwright.chromium.launch({ headless: false });
+  }
 });
 AfterAll(async () => {
   await browser.close();
